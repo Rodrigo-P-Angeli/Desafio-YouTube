@@ -3,7 +3,7 @@
 /* eslint-disable prettier/prettier */
 
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, ImageBackground, Button, Image } from 'react-native'
+import { Text, StyleSheet, View, ImageBackground, Button, Image, Dimensions } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import AuthInput from '../components/AuthInput'
@@ -37,7 +37,7 @@ export default class Auth extends Component {
         return (
             //source={require('../../assets/images/BackGround.jpg')}>
             <View style={styles.backgroung}>
-                <Text style={styles.title}>YouTube</Text>
+                <Text style={styles.title}>Desafio</Text>
                 <View style={styles.formContainer}>
                     <Text style={styles.subTitle}>{this.state.stageNew ? 'Crie a sua conta' : 'Entrar com E-mail'}</Text>
                     {this.state.stageNew &&
@@ -46,24 +46,25 @@ export default class Auth extends Component {
                     <AuthInput icon={'lock'} secureTextEntry={this.state.secureTextSenha} placeholder={'Senha'} value={this.state.password} style={styles.input} onChangeText={password => this.setState({ password })} />
                     {this.state.stageNew &&
                         <AuthInput icon={'asterisk'} secureTextEntry={this.state.secureTextConfirmSenha} placeholder={'Confirmar Senha'} value={this.state.confirmPassword} style={styles.input} onChangeText={confirmPassword => this.setState({ confirmPassword })} />}
-                    <TouchableOpacity disabled={!validForm} onPress={() => this.state.stageNew ? this.props.login : this.props.login}>
-                        <View style={{ height: 10 }} />
-                        <View style={[styles.buttonContainer, styles.loginButton, validForm ? [] : { backgroundColor: '#AAA' }]}>
-                            <Text style={styles.buttonText}>{this.state.stageNew ? 'Registrar' : 'Entrar'}</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-                <View style={{ marginTop: 10, padding: 10, alignItems: 'center' }}>
-                    <TouchableOpacity style={[styles.buttonContainer, styles.fabookButton]} onPress={this.props.login} >
+                    <View style={{ height: 10 }} />
+                    <TouchableOpacity style={[styles.buttonContainer, styles.fabookButtonvalidForm ? [] : { backgroundColor: '#AAA' }]} disabled={!validForm} onPress={() => this.state.stageNew ? this.props.login : this.props.login}>
                         <View style={styles.socialButtonContent}>
-                            <Image style={styles.icon} source={require('../assets/images/LoginIcons/facebook.png')} />
-                            <Text style={styles.loginText}>Continue with facebook</Text>
+                            <Image style={styles.icon} source={require('../assets/images/FeedHeader.png')} />
+                            <Text style={[styles.loginText]}>{this.state.stageNew ? 'Registrar' : 'Entrar com Email'}</Text>
                         </View>
                     </TouchableOpacity>
+                </View >
+                <View style={{ marginTop: 10, padding: 10, alignItems: 'center' }}>
                     <TouchableOpacity style={[styles.buttonContainer, styles.googleButton]} onPress={this.props.login}>
                         <View style={styles.socialButtonContent}>
                             <Image style={styles.icon} source={require('../assets/images/LoginIcons/google-flat.png')} />
-                            <Text style={styles.loginText}>Continue with Google</Text>
+                            <Text style={styles.loginText}>Continuar com Google</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.buttonContainer, styles.fabookButton]} onPress={this.props.login} >
+                        <View style={styles.socialButtonContent}>
+                            <Image style={styles.icon} source={require('../assets/images/LoginIcons/facebook.png')} />
+                            <Text style={styles.loginText}>Continuar com facebook</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -72,7 +73,7 @@ export default class Auth extends Component {
                         {this.state.stageNew ? 'Fazer Login' : 'Criar conta'}
                     </Text>
                 </TouchableOpacity>
-            </View>
+            </View >
         )
     }
 }
@@ -83,13 +84,20 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         alignItems: 'center',
         justifyContent: 'center',
-
+        backgroundColor: 'white',
+    },
+    image: {
+        height: 50,
+        width: 50,
+        alignSelf: 'center',
+        //marginLeft: Dimensions.get('screen').width / 10
     },
     title: {
         fontFamily: CommonStyles.fontFamilyTitle,
-        color: CommonStyles.Colors.secundary,
+        color: CommonStyles.Colors.Title,
         fontSize: 70,
         marginBottom: 10,
+        textAlign: 'center',
     },
     subTitle: {
         color: 'white',
@@ -115,10 +123,13 @@ const styles = StyleSheet.create({
         fontFamily: CommonStyles.fontFamily,
         color: 'white',
         fontSize: 20,
+
+
     },
     loginButton: {
         backgroundColor: CommonStyles.Colors.logginButton,
         fontFamily: CommonStyles.fontFamily,
+        justifyContent: 'center',
     },
     loginButtonText: {
         fontFamily: CommonStyles.fontFamily,
@@ -151,8 +162,6 @@ const styles = StyleSheet.create({
     },
     socialButtonContent: {
         flexDirection: 'row',
-        //justifyContent: 'flex-end',
-        //alignContent: 'flex-start',
         alignItems: 'center',
     },
     googleButton: {

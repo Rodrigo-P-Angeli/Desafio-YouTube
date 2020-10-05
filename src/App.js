@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack'
 
 import Auth from './screens/Auth'
 import SplashScreen from './screens/SplashScreen'
 import Feed from './screens/Feed';
 import Video from './screens/Video';
+import CommonStyles from './CommonStyles';
 
 const Stack = createStackNavigator();
 
@@ -12,22 +13,28 @@ const initialState = {
     isSignedIn: false,
     isLoading: true,
 }
+
 class AppStack extends Component {
     render() {
         return (
-            <Stack.Navigator>
-                <Stack.Screen name="Feed">
+            <Stack.Navigator
+                screenOptions={{
+                    cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+                    headerTitleStyle: {
+                        fontFamily: CommonStyles.fontFamilyTitle,
+                    },
+                    headerTintColor: 'red'
+                }}>
+                <Stack.Screen name="Feed"  >
                     {(props) => <Feed {...this.props} {...props} />}
                 </Stack.Screen>
-                <Stack.Screen name="Video">
+                <Stack.Screen name="Video" options={{ headerTintColor: 'black' }}>
                     {(props) => <Video {...this.props} {...props} />}
                 </Stack.Screen>
             </Stack.Navigator>
         )
     }
 }
-
-
 
 export default class App extends Component {
     state = {

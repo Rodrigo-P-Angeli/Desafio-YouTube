@@ -1,4 +1,4 @@
-#Sat Oct 03 12:03:16 BRT 2020
+#Mon Oct 05 11:44:01 BRT 2020
 base.0=C\:\\Users\\Ruindows\\Desktop\\Desafio\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
