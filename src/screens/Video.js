@@ -14,7 +14,7 @@ LogBox.ignoreAllLogs()
 export default class Video extends Component {
     state = {
         loading: true,
-        playing: false,
+        playing: true,
         favoritado: false
     }
     async componentDidMount() {
@@ -26,7 +26,7 @@ export default class Video extends Component {
         await this.setState({ loading: true })
         await this.loadVideo(videoId)
         await this.checkFavoritos(videoId)
-        await this.setState({ loading: false })
+        await this.setState({ list: List, loading: false })
     }
     async checkFavoritos(videoId) {
         try {
@@ -57,7 +57,7 @@ export default class Video extends Component {
         } catch (e) {
             console.log(e)
         }
-        await this.checkFavoritos()
+        await this.checkFavoritos(this.props.route.params.videoId)
     }
     async removeFavoritos() {
         try {
@@ -75,7 +75,7 @@ export default class Video extends Component {
         } catch (e) {
             console.log('Erro ao carregar favoritos', e)
         }
-        this.checkFavoritos()
+        this.checkFavoritos(this.props.route.params.videoId)
     }
     setHeader = () => {
         this.props.navigation.setOptions({
@@ -89,7 +89,7 @@ export default class Video extends Component {
         this.props.navigation.setOptions({
             title: 'Carregando',
         });
-        await getYoutubeMeta(this.props.route.params.videoId).then(meta => {
+        await getYoutubeMeta(videoId).then(meta => {
             this.setState({ meta })
         }).catch(e => console.log(e))
     }
