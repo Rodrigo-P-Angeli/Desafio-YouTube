@@ -2,12 +2,12 @@
 
 Projeto React Native para processo seletivo da Globo RJ
 
-Antes de tudo, um breve recado sobre minha trajetória na programação em React Native. Comecei a criar App em React Native na primeira semana de abril do ano de 2020 quando se iniciou a quarentena e estava desempregado quando tive vontade de começar uma nova conquista. Assim hoje fazem aproximados 5 meses que desde que comecei. Como sou formado em engenharia mecânica, nunca havia estudado a fundo React Native, JavaScript, Node.js, Firebase, etc. Então todo conhecimento que tenho foram adquiridos nestes 5 meses, desta forma pode ser que o código não esteja organizado de maneira muito comum das boas práticas de programação, mas aprendo rápido e não seria nenhum problema me adequar às boas práticas da empresa.
+Antes de tudo, um breve recado sobre minha trajetória na programação em React Native. Comecei a criar App em React Native na primeira semana de abril do ano de 2020 quando se iniciou a quarentena e estava desempregado quando tive vontade de começar uma nova conquista. Assim hoje fazem aproximados 6 meses que desde que comecei. Como sou formado em engenharia mecânica, nunca havia estudado a fundo React Native, JavaScript, Node.js, Firebase, etc. Então todo conhecimento que tenho foram adquiridos nestes 6 meses, desta forma pode ser que o código não esteja organizado de maneira muito comum das boas práticas de programação, mas aprendo rápido e não seria nenhum problema me adequar às boas práticas da empresa.
 
 ### Instalação
 **O projeto desenvolvido em _React Native_.**
 
-**OBS.:** Antes uma breve observação, meu computador é windows e eu não consigo rodar "react-native run-ios" em minha máquina, logo não posso de testar a aplicação em iOS, olhei na internet como fazer mas não achei nenhuma informaçao, infelizmente meu computador é muito fraco e não consigo emular macOS, então peço desculpas, imagino que algumas bibliotecas não esteja funcionando corretamente pois não consigo rodar "pod install".
+**OBS.:** Antes uma breve observação, meu computador é windows e eu não consigo rodar "react-native run-ios" em minha máquina, logo não posso de testar a aplicação em iOS, olhei na internet como fazer mas não achei nenhuma informaçao, infelizmente meu computador é muito fraco e não consigo emular macOS, então peço desculpas, imagino que algumas bibliotecas não estejam funcionando corretamente pois não consigo rodar "pod install".
 
  ***Metodo 1:***
  
